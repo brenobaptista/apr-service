@@ -1,0 +1,22 @@
+{
+  "name": "apr-calculator",
+  "version": "1.0.0",
+  "main": "index.js",
+  "license": "MIT",
+  "scripts": {
+    "start": "node index.js",
+    "dev": "nodemon index.js",
+    "lint": "eslint --fix .",
+    "prettier": "prettier --write .",
+    "dependencies": "yarn upgrade-interactive --latest"
+  },
+  "dependencies": {
+    "cors": "^2.8.5",
+    "express": "^4.17.1"
+  },
+  "devDependencies": {
+    "eslint": "^7.32.0",
+    "nodemon": "^2.0.13",
+    "prettier": "^2.4.1"
+  }
+}
