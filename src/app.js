@@ -1,6 +1,14 @@
 const express = require('express')
 const cors = require('cors')
 const compression = require('compression')
+const dotenv = require('dotenv')
+
+const configOutput = dotenv.config()
+
+if (configOutput.error) {
+  throw new Error("Couldn't find a .env file")
+}
+
 const routes = require('./api')
 
 const app = express()
@@ -17,4 +25,4 @@ app.disable('x-powered-by')
 
 app.use(routes)
 
-app.listen(3333)
+app.listen(process.env.PORT || 8080)

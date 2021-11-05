@@ -4,6 +4,8 @@
 
 ## Getting Started
 
+Create a `.env` file using `.env.example` as an example.
+
 ### Essencial scripts
 
 ```sh
