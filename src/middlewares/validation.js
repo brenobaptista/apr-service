@@ -5,7 +5,13 @@ const validate = (req, res, next) => {
     req.body
 
   try {
-    invalidateImpossibleCases(loanTerm, creditScore)
+    invalidateImpossibleCases(
+      loanAmount,
+      loanTerm,
+      creditScore,
+      vehicleYear,
+      vehicleMileage
+    )
 
     return next()
   } catch (error) {
