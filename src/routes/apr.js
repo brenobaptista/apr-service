@@ -1,5 +1,7 @@
-const apr = require('../controllers/apr')
+import { calculate } from '../controllers/apr.js'
 
-module.exports = routes => {
-  routes.post('/apr', apr.calculate)
+const aprRoutes = routes => {
+  routes.post('/apr', calculate)
 }
+
+export default aprRoutes

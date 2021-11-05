@@ -21,7 +21,7 @@ const handleAPR = (creditScore, { lowAPR, mediumAPR, highAPR }) => {
   }
 }
 
-exports.calculateAPR = (loanTerm, creditScore) => {
+export const calculateAPR = (loanTerm, creditScore) => {
   if (0 < loanTerm <= 36) {
     return handleAPR(creditScore, {
       lowAPR: 0.1275,
@@ -42,7 +42,7 @@ exports.calculateAPR = (loanTerm, creditScore) => {
   }
 }
 
-exports.validateParameters = (loanTerm, creditScore) => {
+export const validateParameters = (loanTerm, creditScore) => {
   if (loanTerm <= 0) {
     return {
       success: false,

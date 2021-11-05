@@ -1,7 +1,9 @@
-const dotenvLoader = require('./dotenv')
-const expressLoader = require('./express')
+import dotenvLoader from './dotenv.js'
+import expressLoader from './express.js'
 
-module.exports = app => {
+const loaders = app => {
   dotenvLoader()
   expressLoader(app)
 }
+
+export default loaders

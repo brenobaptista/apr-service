@@ -1,9 +1,9 @@
-const { Router } = require('express')
+import { Router } from 'express'
 
-const apr = require('./apr')
+import apr from './apr.js'
 
 const routes = Router()
 
 apr(routes)
 
-module.exports = routes
+export default routes

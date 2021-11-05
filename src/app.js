@@ -1,7 +1,7 @@
-const express = require('express')
+import express from 'express'
 
-const loaders = require('./loaders')
-const routes = require('./routes')
+import loaders from './loaders/index.js'
+import routes from './routes/index.js'
 
 const app = express()
 

@@ -1,9 +1,11 @@
-const dotenv = require('dotenv')
+import dotenv from 'dotenv'
 
-module.exports = () => {
+const dotenvLoader = () => {
   const configOutput = dotenv.config()
 
   if (configOutput.error) {
     throw new Error("Couldn't find a .env file")
   }
 }
+
+export default dotenvLoader

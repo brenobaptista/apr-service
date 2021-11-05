@@ -1,8 +1,8 @@
-const express = require('express')
-const cors = require('cors')
-const compression = require('compression')
+import express from 'express'
+import cors from 'cors'
+import compression from 'compression'
 
-module.exports = app => {
+const expressLoader = app => {
   app.use(express.json())
 
   app.use(express.urlencoded({ extended: true }))
@@ -13,3 +13,5 @@ module.exports = app => {
 
   app.disable('x-powered-by')
 }
+
+export default expressLoader

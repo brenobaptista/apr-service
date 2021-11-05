@@ -1,16 +1,16 @@
-const apr = require('../services/apr')
+import { calculateAPR, validateParameters } from '../services/apr.js'
 
-exports.calculate = (req, res) => {
+export const calculate = (req, res) => {
   const { loanAmount, loanTerm, creditScore, vehicleYear, vehicleMileage } =
     req.body
 
-  const validation = apr.validateParameters(loanTerm, creditScore)
+  const validation = validateParameters(loanTerm, creditScore)
 
   if (!validation.success) {
     res.status(400).json(validation)
   }
 
-  const aprResponse = apr.calculateAPR(loanTerm, creditScore)
+  const aprResponse = calculateAPR(loanTerm, creditScore)
 
   res.status(200).json(aprResponse)
 }
