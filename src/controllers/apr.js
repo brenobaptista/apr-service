@@ -1,9 +1,6 @@
-const { Router } = require('express')
-const apr = require('../../services/apr')
+const apr = require('../services/apr')
 
-const route = Router()
-
-route.post('/apr', (req, res) => {
+exports.calculate = (req, res) => {
   const { loanAmount, loanTerm, creditScore, vehicleYear, vehicleMileage } =
     req.body
 
@@ -16,6 +13,4 @@ route.post('/apr', (req, res) => {
   const aprResponse = apr.calculateAPR(loanTerm, creditScore)
 
   res.status(200).json(aprResponse)
-})
-
-module.exports = route
+}

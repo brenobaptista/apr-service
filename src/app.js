@@ -1,6 +1,7 @@
 const express = require('express')
-const routes = require('./api')
+
 const loaders = require('./loaders')
+const routes = require('./routes')
 
 const app = express()
 
