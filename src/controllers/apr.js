@@ -4,13 +4,18 @@ export const calculate = (req, res) => {
   const { loanAmount, loanTerm, creditScore, vehicleYear, vehicleMileage } =
     req.body
 
-  const validation = validateParameters(loanTerm, creditScore)
+  try {
+    validateParameters(loanTerm, creditScore)
 
-  if (!validation.success) {
-    res.status(400).json(validation)
+    const aprResponse = calculateAPR(loanTerm, creditScore)
+
+    res.status(200).json(aprResponse)
+  } catch (error) {
+    const { status, success, message } = error
+
+    res.status(status).json({
+      success,
+      message
+    })
   }
-
-  const aprResponse = calculateAPR(loanTerm, creditScore)
-
-  res.status(200).json(aprResponse)
 }
