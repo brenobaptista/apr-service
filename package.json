@@ -1,11 +1,11 @@
 {
   "name": "apr-calculator",
   "version": "1.0.0",
-  "main": "index.js",
+  "main": "src/app.js",
   "license": "MIT",
   "scripts": {
-    "start": "node index.js",
-    "dev": "nodemon index.js",
+    "start": "node src/app.js",
+    "dev": "nodemon src/app.js",
     "lint": "eslint --fix .",
     "prettier": "prettier --write .",
     "dependencies": "yarn upgrade-interactive --latest"
