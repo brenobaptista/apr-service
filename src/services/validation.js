@@ -1,4 +1,4 @@
-const invalidateImpossibleCases = (loanTerm, creditScore) => {
+const invalidateLoanTerm = loanTerm => {
   if (loanTerm <= 0) {
     throw {
       status: 400,
@@ -14,7 +14,9 @@ const invalidateImpossibleCases = (loanTerm, creditScore) => {
       message: 'Loan term cannot be more than 60 months'
     }
   }
+}
 
+const invalidateCreditScore = creditScore => {
   if (creditScore < 300) {
     throw {
       status: 400,
@@ -30,6 +32,11 @@ const invalidateImpossibleCases = (loanTerm, creditScore) => {
       message: 'The highest credit score possible is 850'
     }
   }
+}
+
+const invalidateImpossibleCases = (loanTerm, creditScore) => {
+  invalidateLoanTerm(loanTerm)
+  invalidateCreditScore(creditScore)
 }
 
 export default invalidateImpossibleCases
