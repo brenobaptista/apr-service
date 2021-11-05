@@ -1,7 +1,8 @@
 import { calculate } from '../controllers/apr.js'
+import validate from '../middlewares/validation.js'
 
-const aprRoutes = routes => {
-  routes.post('/apr', calculate)
+const apr = routes => {
+  routes.post('/apr', validate, calculate)
 }
 
-export default aprRoutes
+export default apr
