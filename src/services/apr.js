@@ -1,19 +1,19 @@
 const handleAPR = (creditScore, { lowScore, mediumScore, highScore }) => {
-  if (300 <= creditScore < 600) {
+  if (creditScore >= 300 && creditScore < 600) {
     return {
       success: true,
       apr: lowScore
     }
   }
 
-  if (600 <= creditScore < 700) {
+  if (creditScore >= 600 && creditScore < 700) {
     return {
       success: true,
       apr: mediumScore
     }
   }
 
-  if (700 <= creditScore <= 850) {
+  if (creditScore >= 700 && creditScore <= 850) {
     return {
       success: true,
       apr: highScore
@@ -22,7 +22,7 @@ const handleAPR = (creditScore, { lowScore, mediumScore, highScore }) => {
 }
 
 export const calculateAPR = (loanTerm, creditScore) => {
-  if (0 < loanTerm <= 36) {
+  if (loanTerm > 0 && loanTerm <= 36) {
     return handleAPR(creditScore, {
       lowScore: 0.1275,
       mediumScore: 0.0575,
@@ -30,7 +30,7 @@ export const calculateAPR = (loanTerm, creditScore) => {
     })
   }
 
-  if (36 < loanTerm <= 48) {
+  if (loanTerm > 36 && loanTerm <= 48) {
     return handleAPR(creditScore, {
       lowScore: 0.1325,
       mediumScore: 0.06,
@@ -38,7 +38,7 @@ export const calculateAPR = (loanTerm, creditScore) => {
     })
   }
 
-  if (48 < loanTerm <= 60) {
+  if (loanTerm > 48 && loanTerm <= 60) {
   }
 }
 
