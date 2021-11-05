@@ -50,4 +50,12 @@ export const calculateAPR = (loanTerm, creditScore) => {
       highScore: 0.055
     })
   }
+
+  if (loanTerm > 60) {
+    throw {
+      status: 200,
+      success: false,
+      message: 'Loan term cannot be more than 60 months'
+    }
+  }
 }

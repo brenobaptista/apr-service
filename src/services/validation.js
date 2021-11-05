@@ -6,14 +6,6 @@ const invalidateLoanTerm = loanTerm => {
       message: 'Loan term cannot be less than or equal to 0 months'
     }
   }
-
-  if (loanTerm > 60) {
-    throw {
-      status: 400,
-      success: false,
-      message: 'Loan term cannot be more than 60 months'
-    }
-  }
 }
 
 const invalidateCreditScore = creditScore => {
