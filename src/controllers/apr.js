@@ -1,10 +1,10 @@
-import { calculateAPR, addModifiers } from '../services/apr.js'
+import { calculateBaseAPR, addModifiers } from '../services/apr.js'
 
 export const calculate = (req, res) => {
   const { loanTerm, creditScore, vehicleYear, vehicleMileage } = req.body
 
   try {
-    const baseAPR = calculateAPR(loanTerm, creditScore)
+    const baseAPR = calculateBaseAPR(loanTerm, creditScore)
 
     const modifiedAPR = addModifiers(baseAPR, vehicleYear, vehicleMileage)
 
