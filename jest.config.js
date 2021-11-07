@@ -1,3 +1,4 @@
 export default {
-  clearMocks: true
+  clearMocks: true,
+  collectCoverageFrom: ['src/{controllers,middlewares,services}/*.js']
 }
