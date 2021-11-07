@@ -1,4 +1,4 @@
-const invalidateLoanAmount = loanAmount => {
+const validateLoanAmount = loanAmount => {
   if (loanAmount <= 0) {
     throw {
       status: 400,
@@ -8,7 +8,7 @@ const invalidateLoanAmount = loanAmount => {
   }
 }
 
-const invalidateLoanTerm = loanTerm => {
+const validateLoanTerm = loanTerm => {
   if (loanTerm <= 0) {
     throw {
       status: 400,
@@ -18,7 +18,7 @@ const invalidateLoanTerm = loanTerm => {
   }
 }
 
-const invalidateCreditScore = creditScore => {
+const validateCreditScore = creditScore => {
   if (creditScore < 300) {
     throw {
       status: 400,
@@ -36,7 +36,7 @@ const invalidateCreditScore = creditScore => {
   }
 }
 
-const invalidateVehicleYear = vehicleYear => {
+const validateVehicleYear = vehicleYear => {
   const currentYear = new Date().getFullYear()
 
   if (vehicleYear > currentYear + 1) {
@@ -56,7 +56,7 @@ const invalidateVehicleYear = vehicleYear => {
   }
 }
 
-const invalidateVehicleMileage = vehicleMileage => {
+const validateVehicleMileage = vehicleMileage => {
   if (vehicleMileage <= 0) {
     throw {
       status: 400,
@@ -66,18 +66,75 @@ const invalidateVehicleMileage = vehicleMileage => {
   }
 }
 
-const invalidateImpossibleCases = (
+export const validateImpossibleCases = (
   loanAmount,
   loanTerm,
   creditScore,
   vehicleYear,
   vehicleMileage
 ) => {
-  invalidateLoanAmount(loanAmount)
-  invalidateLoanTerm(loanTerm)
-  invalidateCreditScore(creditScore)
-  invalidateVehicleYear(vehicleYear)
-  invalidateVehicleMileage(vehicleMileage)
+  validateLoanAmount(loanAmount)
+  validateLoanTerm(loanTerm)
+  validateCreditScore(creditScore)
+  validateVehicleYear(vehicleYear)
+  validateVehicleMileage(vehicleMileage)
 }
 
-export default invalidateImpossibleCases
+const validateLoanTermRules = (loanAmount, loanTerm) => {
+  if (loanTerm <= 36 && loanAmount <= 5000) {
+    throw {
+      status: 200,
+      success: false,
+      message: 'The minimum loan amount for loans up to 36 months is $5,000'
+    }
+  }
+
+  if (loanTerm > 36 && loanTerm <= 48 && loanAmount <= 10000) {
+    throw {
+      status: 200,
+      success: false,
+      message: 'The minimum loan amount for loans up to 48 months is $10,000'
+    }
+  }
+
+  if (loanTerm > 48 && loanTerm <= 60 && loanAmount <= 15000) {
+    throw {
+      status: 200,
+      success: false,
+      message: 'The minimum loan amount for loans up to 60 months is $15,000'
+    }
+  }
+}
+
+const validateCreditScoreRules = (loanAmount, creditScore) => {
+  if (creditScore >= 700 && loanAmount >= 100000) {
+    throw {
+      status: 200,
+      success: false,
+      message:
+        'The maximum loan amount for credit score equal to 700 or above is $100,000'
+    }
+  }
+
+  if (creditScore >= 600 && creditScore < 700 && loanAmount >= 75000) {
+    throw {
+      status: 200,
+      success: false,
+      message:
+        'The maximum loan amount for credit score between 600 and 699 is $75,000'
+    }
+  }
+
+  if (creditScore <= 600 && loanAmount >= 50000) {
+    throw {
+      status: 200,
+      success: false,
+      message: 'The maximum loan amount for credit score below 600 is $50,000'
+    }
+  }
+}
+
+export const validateRules = (loanAmount, loanTerm, creditScore) => {
+  validateLoanTermRules(loanAmount, loanTerm)
+  validateCreditScoreRules(loanAmount, creditScore)
+}

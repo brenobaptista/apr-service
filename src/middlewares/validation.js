@@ -1,17 +1,22 @@
-import invalidateImpossibleCases from '../services/validation.js'
+import {
+  validateImpossibleCases,
+  validateRules
+} from '../services/validation.js'
 
 const validate = (req, res, next) => {
   const { loanAmount, loanTerm, creditScore, vehicleYear, vehicleMileage } =
     req.body
 
   try {
-    invalidateImpossibleCases(
+    validateImpossibleCases(
       loanAmount,
       loanTerm,
       creditScore,
       vehicleYear,
       vehicleMileage
     )
+
+    validateRules(loanAmount, loanTerm, creditScore)
 
     return next()
   } catch (error) {
