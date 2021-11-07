@@ -7,7 +7,7 @@
 ### Essencial scripts
 
 ```sh
-1. Generate the .env file (Linux and macOS):
+1. Generate the .env file:
 $ cp .env.example .env
 
 2. Install dependencies:
