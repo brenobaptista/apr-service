@@ -43,7 +43,7 @@ const validateVehicleYear = vehicleYear => {
     throw {
       status: 400,
       success: false,
-      message: `Vehicle year cannot be greater than ${currentYear + 1}`
+      message: `Vehicle year cannot be after ${currentYear + 1}`
     }
   }
 
@@ -51,7 +51,7 @@ const validateVehicleYear = vehicleYear => {
     throw {
       status: 400,
       success: false,
-      message: 'Vehicle year cannot be lesser than 1900'
+      message: 'Vehicle year cannot be before 1900'
     }
   }
 }
@@ -61,7 +61,7 @@ const validateVehicleMileage = vehicleMileage => {
     throw {
       status: 400,
       success: false,
-      message: 'Vehicle mileage cannot be less than or equal to 0 dollars'
+      message: 'Vehicle mileage cannot be less than or equal to 0 miles'
     }
   }
 }
@@ -107,12 +107,11 @@ const validateLoanTermRules = (loanAmount, loanTerm) => {
 }
 
 const validateCreditScoreRules = (loanAmount, creditScore) => {
-  if (creditScore >= 700 && loanAmount >= 100000) {
+  if (creditScore <= 600 && loanAmount >= 50000) {
     throw {
       status: 200,
       success: false,
-      message:
-        'The maximum loan amount for credit score equal to 700 or above is $100,000'
+      message: 'The maximum loan amount for credit score below 600 is $50,000'
     }
   }
 
@@ -125,11 +124,12 @@ const validateCreditScoreRules = (loanAmount, creditScore) => {
     }
   }
 
-  if (creditScore <= 600 && loanAmount >= 50000) {
+  if (creditScore >= 700 && loanAmount >= 100000) {
     throw {
       status: 200,
       success: false,
-      message: 'The maximum loan amount for credit score below 600 is $50,000'
+      message:
+        'The maximum loan amount for credit score equal to 700 or above is $100,000'
     }
   }
 }
