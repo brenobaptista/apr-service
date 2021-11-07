@@ -59,3 +59,19 @@ export const calculateAPR = (loanTerm, creditScore) => {
     }
   }
 }
+
+export const addModifiers = (baseAPR, vehicleYear, vehicleMileage) => {
+  let modifiedAPR = {
+    ...baseAPR
+  }
+
+  if (vehicleYear <= 2015) {
+    modifiedAPR.apr += 0.01
+  }
+
+  if (vehicleMileage > 100000) {
+    modifiedAPR.apr += 0.02
+  }
+
+  return modifiedAPR
+}
