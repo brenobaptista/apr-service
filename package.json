@@ -9,8 +9,8 @@
     "dev": "nodemon src/app.js",
     "test": "node --experimental-vm-modules node_modules/jest/bin/jest.js",
     "test:coverage": "yarn test --coverage",
-    "lint": "eslint --fix .",
-    "prettier": "prettier --write .",
+    "lint": "eslint --fix src",
+    "prettier": "prettier --write src",
     "dependencies": "yarn upgrade-interactive --latest"
   },
   "dependencies": {
