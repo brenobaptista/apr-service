@@ -4,24 +4,25 @@
 
 ## Getting Started
 
-Create a `.env` file using `.env.example` as an example.
-
 ### Essencial scripts
 
 ```sh
-Install dependencies:
+1. Generate the .env file (Linux and macOS):
+$ cp .env.example .env
+
+2. Install dependencies:
 $ yarn
 
-Start the API:
+3. Start the API:
 $ yarn start
-
-Start the API (dev mode):
-$ yarn dev
 ```
 
 ### Development scripts
 
 ```sh
+Start the API (automatic restarting):
+$ yarn dev
+
 Run tests:
 $ yarn test
 
