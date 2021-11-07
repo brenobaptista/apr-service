@@ -11,7 +11,8 @@
     "test:coverage": "yarn test --coverage",
     "lint": "eslint --fix src",
     "prettier": "prettier --write src",
-    "dependencies": "yarn upgrade-interactive --latest"
+    "dependencies": "yarn upgrade-interactive --latest",
+    "prepare": "husky install"
   },
   "dependencies": {
     "compression": "^1.7.4",
@@ -21,7 +22,9 @@
   },
   "devDependencies": {
     "eslint": "^7.32.0",
+    "husky": ">=6",
     "jest": "^27.3.1",
+    "lint-staged": ">=10",
     "nodemon": "^2.0.13",
     "prettier": "^2.4.1"
   }

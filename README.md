@@ -39,6 +39,8 @@ Update dependencies:
 $ yarn dependencies
 ```
 
+The script `prepare` is required by Husky to automatically have Git hooks enabled after install. You don't need to run it manually.
+
 ## Author
 
 | [![brenobaptista](https://avatars1.githubusercontent.com/u/47641641?s=120&v=4)](https://github.com/brenobaptista) |
