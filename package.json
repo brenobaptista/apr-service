@@ -7,6 +7,8 @@
   "scripts": {
     "start": "node src/app.js",
     "dev": "nodemon src/app.js",
+    "test": "node --experimental-vm-modules node_modules/jest/bin/jest.js",
+    "test:coverage": "yarn test --coverage",
     "lint": "eslint --fix .",
     "prettier": "prettier --write .",
     "dependencies": "yarn upgrade-interactive --latest"
@@ -19,6 +21,7 @@
   },
   "devDependencies": {
     "eslint": "^7.32.0",
+    "jest": "^27.3.1",
     "nodemon": "^2.0.13",
     "prettier": "^2.4.1"
   }

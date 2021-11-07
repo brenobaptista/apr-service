@@ -22,6 +22,12 @@ $ yarn dev
 ### Development scripts
 
 ```sh
+Run tests:
+$ yarn test
+
+Check tests coverage:
+$ yarn test:coverage
+
 Lint files:
 $ yarn lint
 
