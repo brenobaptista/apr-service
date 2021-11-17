@@ -1,6 +1,6 @@
 import { Router } from 'express'
 
-import apr from './apr.js'
+import apr from './apr'
 
 const routes = Router()
 
