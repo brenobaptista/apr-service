@@ -1,5 +1,10 @@
 import { calculate } from '../../src/controllers/apr'
 
+interface Body {
+  success: boolean
+  apr: number
+}
+
 describe('APR controller', () => {
   test('example input data', () => {
     const mockRequest = {
@@ -12,14 +17,14 @@ describe('APR controller', () => {
       }
     }
 
-    let mockResponse = {
-      statusCode: '',
-      body: '',
-      status: statusCode => {
+    const mockResponse = {
+      statusCode: 0,
+      body: {},
+      status: (statusCode: number) => {
         mockResponse.statusCode = statusCode
 
         return {
-          json: body => {
+          json: (body: Body) => {
             mockResponse.body = body
           }
         }
@@ -46,14 +51,14 @@ describe('APR controller', () => {
       }
     }
 
-    let mockResponse = {
-      statusCode: '',
-      body: '',
-      status: statusCode => {
+    const mockResponse = {
+      statusCode: 0,
+      body: {},
+      status: (statusCode: number) => {
         mockResponse.statusCode = statusCode
 
         return {
-          json: body => {
+          json: (body: Body) => {
             mockResponse.body = body
           }
         }

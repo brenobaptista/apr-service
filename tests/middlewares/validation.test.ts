@@ -2,6 +2,11 @@ import { jest } from '@jest/globals'
 
 import validate from '../../src/middlewares/validation'
 
+interface Body {
+  success: boolean
+  apr: number
+}
+
 describe('Validation middleware', () => {
   test('if impossible cases are blocked', () => {
     const mockRequest = {
@@ -14,14 +19,14 @@ describe('Validation middleware', () => {
       }
     }
 
-    let mockResponse = {
-      statusCode: '',
-      body: '',
-      status: statusCode => {
+    const mockResponse = {
+      statusCode: 0,
+      body: {},
+      status: (statusCode: number) => {
         mockResponse.statusCode = statusCode
 
         return {
-          json: body => {
+          json: (body: Body) => {
             mockResponse.body = body
           }
         }
@@ -51,14 +56,14 @@ describe('Validation middleware', () => {
       }
     }
 
-    let mockResponse = {
-      statusCode: '',
-      body: '',
-      status: statusCode => {
+    const mockResponse = {
+      statusCode: 0,
+      body: {},
+      status: (statusCode: number) => {
         mockResponse.statusCode = statusCode
 
         return {
-          json: body => {
+          json: (body: Body) => {
             mockResponse.body = body
           }
         }
