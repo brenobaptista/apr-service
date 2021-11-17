@@ -2,9 +2,10 @@
   "compilerOptions": {
     "target": "es2017",
     "lib": ["es6"],
-    "module": "commonjs",
+    "module": "ES2015",
     "rootDir": "./src",
     "baseUrl": ".",
+    "moduleResolution": "node",
     "resolveJsonModule": true,
     "allowJs": true,
     "outDir": "./dist",

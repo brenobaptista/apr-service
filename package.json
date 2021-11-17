@@ -1,11 +1,12 @@
 {
   "name": "apr-calculator",
+  "type": "module",
   "version": "1.0.0",
   "main": "src/app.js",
   "license": "MIT",
   "scripts": {
     "build": "tsc",
-    "start": "node dist/app.js",
+    "start": "node --experimental-specifier-resolution=node dist/app.js",
     "dev": "ts-node-dev --respawn --transpile-only --ignore-watch node_modules --no-notify src/app.ts",
     "test": "node --experimental-vm-modules node_modules/jest/bin/jest.js",
     "test:coverage": "yarn test --coverage",
