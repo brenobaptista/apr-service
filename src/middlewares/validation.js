@@ -1,7 +1,4 @@
-import {
-  validateImpossibleCases,
-  validateRules
-} from '../services/validation.js'
+import { validateImpossibleCases, validateRules } from '../services/validation'
 
 const validate = (req, res, next) => {
   const { loanAmount, loanTerm, creditScore, vehicleYear, vehicleMileage } =

@@ -1,4 +1,4 @@
-import { calculateBaseAPR, addModifiers } from '../services/apr.js'
+import { calculateBaseAPR, addModifiers } from '../services/apr'
 
 export const calculate = (req, res) => {
   const { loanTerm, creditScore, vehicleYear, vehicleMileage } = req.body
