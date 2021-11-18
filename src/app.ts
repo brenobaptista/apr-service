@@ -1,7 +1,7 @@
 import express from 'express'
 
-import loaders from './loaders/index.js'
-import routes from './routes/index.js'
+import loaders from './loaders'
+import routes from './routes'
 
 const app = express()
 

@@ -1,8 +1,8 @@
-import express from 'express'
+import express, { Express } from 'express'
 import cors from 'cors'
 import compression from 'compression'
 
-const expressLoader = app => {
+const expressLoader = (app: Express) => {
   app.use(express.json())
 
   app.use(express.urlencoded({ extended: true }))

@@ -13,14 +13,17 @@ $ cp .env.example .env
 2. Install dependencies:
 $ yarn
 
-3. Start the API:
+3. Build the project:
+$ yarn build
+
+4. Start the API:
 $ yarn start
 ```
 
 ### Development scripts
 
 ```sh
-Start the API (automatic restarting):
+Start the API with automatic restarting:
 $ yarn dev
 
 Run tests:

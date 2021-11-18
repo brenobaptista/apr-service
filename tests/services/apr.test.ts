@@ -109,6 +109,22 @@ describe('APR service', () => {
         }
       })
     })
+
+    describe('using credit score', () => {
+      test('lower than 300', () => {
+        expect.assertions(1)
+
+        try {
+          calculateBaseAPR(48, 250)
+        } catch (error) {
+          expect(error).toEqual({
+            status: 400,
+            success: false,
+            message: 'Invalid credit score'
+          })
+        }
+      })
+    })
   })
 
   describe('add modifiers to the base APR', () => {
