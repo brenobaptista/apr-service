@@ -88,11 +88,11 @@ export const addModifiers = (
   }
 
   if (vehicleYear <= 2015) {
-    modifiedAPR.apr += 0.01
+    modifiedAPR.apr = (modifiedAPR.apr * 10000 + 0.01 * 10000) / 10000
   }
 
   if (vehicleMileage > 100000) {
-    modifiedAPR.apr += 0.02
+    modifiedAPR.apr = (modifiedAPR.apr * 10000 + 0.02 * 10000) / 10000
   }
 
   return modifiedAPR
