@@ -1,6 +1,6 @@
 export default {
   clearMocks: true,
-  collectCoverageFrom: ['src/{controllers,middlewares,services}/*.{js,ts}'],
+  collectCoverageFrom: ['src/services/*.{js,ts}'],
   preset: 'ts-jest',
   extensionsToTreatAsEsm: ['.ts'],
   globals: {
