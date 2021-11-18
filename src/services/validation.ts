@@ -1,4 +1,4 @@
-const validateLoanAmount = loanAmount => {
+const validateLoanAmount = (loanAmount: number) => {
   if (loanAmount <= 0) {
     throw {
       status: 400,
@@ -8,7 +8,7 @@ const validateLoanAmount = loanAmount => {
   }
 }
 
-const validateLoanTerm = loanTerm => {
+const validateLoanTerm = (loanTerm: number) => {
   if (loanTerm <= 0) {
     throw {
       status: 400,
@@ -18,7 +18,7 @@ const validateLoanTerm = loanTerm => {
   }
 }
 
-const validateCreditScore = creditScore => {
+const validateCreditScore = (creditScore: number) => {
   if (creditScore < 300) {
     throw {
       status: 400,
@@ -36,7 +36,7 @@ const validateCreditScore = creditScore => {
   }
 }
 
-const validateVehicleYear = vehicleYear => {
+const validateVehicleYear = (vehicleYear: number) => {
   const currentYear = new Date().getFullYear()
 
   if (vehicleYear > currentYear + 1) {
@@ -56,7 +56,7 @@ const validateVehicleYear = vehicleYear => {
   }
 }
 
-const validateVehicleMileage = vehicleMileage => {
+const validateVehicleMileage = (vehicleMileage: number) => {
   if (vehicleMileage <= 0) {
     throw {
       status: 400,
@@ -67,11 +67,11 @@ const validateVehicleMileage = vehicleMileage => {
 }
 
 export const validateImpossibleCases = (
-  loanAmount,
-  loanTerm,
-  creditScore,
-  vehicleYear,
-  vehicleMileage
+  loanAmount: number,
+  loanTerm: number,
+  creditScore: number,
+  vehicleYear: number,
+  vehicleMileage: number
 ) => {
   validateLoanAmount(loanAmount)
   validateLoanTerm(loanTerm)
@@ -80,7 +80,7 @@ export const validateImpossibleCases = (
   validateVehicleMileage(vehicleMileage)
 }
 
-const validateLoanTermRules = (loanAmount, loanTerm) => {
+const validateLoanTermRules = (loanAmount: number, loanTerm: number) => {
   if (loanTerm <= 36 && loanAmount <= 5000) {
     throw {
       status: 200,
@@ -106,7 +106,7 @@ const validateLoanTermRules = (loanAmount, loanTerm) => {
   }
 }
 
-const validateCreditScoreRules = (loanAmount, creditScore) => {
+const validateCreditScoreRules = (loanAmount: number, creditScore: number) => {
   if (creditScore <= 600 && loanAmount >= 50000) {
     throw {
       status: 200,
@@ -134,7 +134,11 @@ const validateCreditScoreRules = (loanAmount, creditScore) => {
   }
 }
 
-export const validateRules = (loanAmount, loanTerm, creditScore) => {
+export const validateRules = (
+  loanAmount: number,
+  loanTerm: number,
+  creditScore: number
+) => {
   validateLoanTermRules(loanAmount, loanTerm)
   validateCreditScoreRules(loanAmount, creditScore)
 }

@@ -1,4 +1,4 @@
-import { Router } from 'express'
+import type { Router } from 'express'
 import { calculate } from '../controllers/apr'
 import validate from '../middlewares/validation'
 

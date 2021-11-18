@@ -1,6 +1,15 @@
+import type { RequestHandler } from 'express'
 import { validateImpossibleCases, validateRules } from '../services/validation'
 
-const validate = (req, res, next) => {
+class ThrowResponse {
+  constructor(
+    public status: number,
+    public success: boolean,
+    public message: string
+  ) {}
+}
+
+const validate: RequestHandler = (req, res, next) => {
   const { loanAmount, loanTerm, creditScore, vehicleYear, vehicleMileage } =
     req.body
 
@@ -17,12 +26,16 @@ const validate = (req, res, next) => {
 
     return next()
   } catch (error) {
-    const { status, success, message } = error
+    if (error instanceof ThrowResponse) {
+      const { status, success, message } = error
 
-    res.status(status).json({
-      success,
-      message
-    })
+      res.status(status).json({
+        success,
+        message
+      })
+    }
+
+    next(error)
   }
 }
 
