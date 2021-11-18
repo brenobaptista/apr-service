@@ -31,7 +31,9 @@ describe('APR controller', () => {
       }
     }
 
-    calculate(mockRequest, mockResponse)
+    const next = jest.fn()
+
+    calculate(mockRequest, mockResponse, next)
 
     expect(mockResponse.statusCode).toBe(200)
     expect(mockResponse.body).toEqual({
@@ -65,7 +67,9 @@ describe('APR controller', () => {
       }
     }
 
-    calculate(mockRequest, mockResponse)
+    const next = jest.fn()
+
+    calculate(mockRequest, mockResponse, next)
 
     expect(mockResponse.statusCode).toBe(200)
     expect(mockResponse.body).toEqual({
