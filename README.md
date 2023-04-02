@@ -1,6 +1,6 @@
 # APR Calculator
 
-> APR calculator exercise
+> APR calculator service
 
 ## Getting Started
 
