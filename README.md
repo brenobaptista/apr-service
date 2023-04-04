@@ -1,6 +1,6 @@
-# APR Calculator
+# APR Service
 
-> APR calculator service
+> APR (annual percentage rate) service for vehicle loans
 
 ## Getting Started
 
