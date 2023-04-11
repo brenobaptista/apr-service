@@ -13,10 +13,7 @@ $ cp .env.example .env
 2. Install dependencies:
 $ yarn
 
-3. Build the project:
-$ yarn build
-
-4. Start the API:
+3. Build and start the API:
 $ yarn start
 ```
 
